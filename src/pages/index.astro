@@ -3,27 +3,69 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="sousto">
-	<main class="wrapper">
-		<h1 class="title">sousto</h1>
-		<p>
-			Sousto rozvíjí komunitní život v Táboře pořádáním hudebních akcí. Podporujeme místní DJs i se snažíme představovat místinímu publiku zajímavá jména české klubové scény.
-		</p>
-		<p>
-			Tábor je náš program.
-		</p>
+	<main>
+		<section class="intro">
+			<article>
+				<header>
+					<h1 class="title">sousto</h1>
+				</header>
+				<p>
+					Sousto rozvíjí komunitní život v Táboře pořádáním hudebních akcí. Podporujeme místní DJs i se snažíme představovat místnímu publiku zajímavá jména české klubové scény.
+				</p>
+				<p>
+					Tábor je náš program.
+				</p>
+				<footer>
+					<a href="https://soundcloud.com/sousto_tabor">soundcloud</a>
+					<a href="https://www.instagram.com/sousto_tabor/">instagram</a>
+					<a href="https://www.facebook.com/soustotabor">facebook</a>
+					<a href="mailto:kolektiv@sousto.space">email</a>
+				</footer>
+			</article>
+			<img src="/soustik.svg" alt="Soustík" class="mascot">
+		</section>
 	</main>
 </Layout>
 
 <style>
-	.wrapper {
-		max-width: 40ch;
+	.intro {
+		display: grid;
+		grid-template-columns: minmax(30px, 38%) minmax(300px, 50ch) 30px;
 		font-size: clamp(32px, 32px + 32 * var(--fluidum), 64px);
-		margin-left: max(38%, 30px);
-		margin-right: 30px;
+		letter-spacing: -1px;
 
-		& > * + * {
-			margin-top: 1lh;
+		& a {
+			color: blue;
 		}
+
+		& > article {
+			grid-column: 2 / 3;
+
+			& > * + * {
+				margin-top: 1lh;
+			}
+
+			& footer {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+
+		& > img {
+			grid-row: 1/ -1;
+			align-self: center;
+			justify-self: center;
+			width: 100%;
+			height: auto;
+			max-width: 400px;
+			animation: gramophone 30s linear infinite;
+			padding: 30px 30px 0;
+		}
+	}
+
+	@keyframes gramophone {
+		0% { rotate: 0deg }
+		100% { rotate: 360deg }
 	}
 
 	.title {
