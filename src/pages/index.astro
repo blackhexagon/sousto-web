@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="sousto">
+	<main class="wrapper">
+		<h1 class="title">sousto</h1>
+		<p>
+			Sousto rozvíjí komunitní život v Táboře pořádáním hudebních akcí. Podporujeme místní DJs i se snažíme představovat místinímu publiku zajímavá jména české klubové scény.
+		</p>
+		<p>
+			Tábor je náš program.
+		</p>
+	</main>
+</Layout>
+
+<style>
+	.wrapper {
+		max-width: 40ch;
+		font-size: clamp(32px, 32px + 32 * var(--fluidum), 64px);
+		margin-left: max(38%, 30px);
+		margin-right: 30px;
+
+		& > * + * {
+			margin-top: 1lh;
+		}
+	}
+
+	.title {
+		font-size: clamp(8 * 16px, 8 * 16px + 16 * 16 * var(--fluidum), 24 * 16px);
+		line-height: 0.75;
+		letter-spacing: clamp(-32px, -12px - 20 * var(--fluidum), -12px);
+		display: inline-flex;
+		align-items: flex-start;
+		margin-left: clamp(-24px, -12px - 12 * var(--fluidum), -12px);
+	}
+</style>
