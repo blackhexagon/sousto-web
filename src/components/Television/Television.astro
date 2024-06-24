@@ -1,0 +1,109 @@
+---
+// imports
+---
+<div class="crt-monitor">
+    <div class="content">
+        <slot />
+        <div class="scan"></div>
+    </div>
+</div>
+
+<style>
+    .crt-monitor {
+        --scale: 5px;
+        @media (orientation: portarit) { --scale: 2px; }
+        width: 100%;
+        height: 100vh;
+        background-image:
+        repeating-linear-gradient(
+                to bottom,
+                black calc(0 * var(--scale)),
+                black calc(0.2 * var(--scale)),
+                transparent calc(0.2 * var(--scale)),
+                transparent calc(2.8 * var(--scale)),
+                transparent calc(3 * var(--scale))
+        ),
+        repeating-linear-gradient(
+                to right,
+                #f11 calc(0 * var(--scale)),
+                #f11 calc(0.8 * var(--scale)),
+                #000 calc(0.8 * var(--scale)),
+                #000 calc(1 * var(--scale)),
+                #1f1 calc(1 * var(--scale)),
+                #1f1 calc(1.8 * var(--scale)),
+                #000 calc(1.8 * var(--scale)),
+                #000 calc(2 * var(--scale)),
+                #11f calc(2 * var(--scale)),
+                #11f calc(2.8 * var(--scale)),
+                #000 calc(2.8 * var(--scale)),
+                #000 calc(3.4 * var(--scale))
+        );
+        background-position: center;
+        filter: blur(1px);
+        overflow: hidden;
+
+        .content {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1f1f1f;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            mix-blend-mode: multiply;
+            animation: shake 35ms infinite linear alternate forwards;
+
+            h1 {
+                background-color: #00ff00;
+                color: transparent;
+                background-clip: text;
+                filter: blur(5px);
+                animation: shake 35ms infinite linear alternate forwards;
+            }
+        }
+
+        .scan {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 30%;
+                top: 0;
+                transform: translateY(-100%) skewY(-5deg);
+                transform-origin: bottom left;
+                background-color: #000;
+                opacity: 0.1;
+                animation: scan 2000ms infinite linear forwards;
+                filter: blur(20px);
+            }
+
+            &::after {
+                height: 25%;
+                animation-delay: -1000ms;
+                opacity: 0.1;
+            }
+        }
+    }
+
+    @keyframes shake {
+        to {
+            transform: translate(1px, 1px);
+        }
+    }
+
+    @keyframes scan {
+        to {
+            transform: translateY(120%) skewY(-5deg);
+            top: 100%;
+        }
+    }
+</style>
