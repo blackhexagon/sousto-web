@@ -1,10 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Television from '../components/Television/Television.astro';
+import OpenAir from '../components/OpenAir/OpenAir.astro';
 ---
 
 <Layout title="sousto">
     <main>
+        <section class="event">
+            <OpenAir />
+        </section>
         <section class="intro">
             <Television>
                 <h1 class="title">
@@ -39,6 +43,10 @@ import Television from '../components/Television/Television.astro';
 
 <style>
 
+    .event {
+        background: var(--color-primary);
+        padding-
+    }
 
     .manifest {
         background: var(--color-primary);
@@ -53,7 +61,6 @@ import Television from '../components/Television/Television.astro';
             display: flex;
             flex-direction: column;
             gap: 32px;
-            letter-spacing: -1px;
         }
 
     }
@@ -93,9 +100,9 @@ import Television from '../components/Television/Television.astro';
 
     .title {
         font-size: clamp(16 * 16px, 16 * 16px + 8 * 16 * var(--fluidum), 24 * 16px);
-        line-height: 0.75;
-        letter-spacing: clamp(-32px, -12px - 20 * var(--fluidum), -12px);
+        line-height: 1cap;
         display: flex;
+        letter-spacing: -0.1ex;
 
 
         @media ( orientation: portrait ) {
