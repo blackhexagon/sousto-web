@@ -3,16 +3,25 @@
 <div class="container">
     <article>
         <h2>sousto <span>open air</span></h2>
-        <p>
-            17/8/2024
-        </p>
+        <div>
+            <time datetime="2024-08-17" class="date">
+                17/8/24
+            </time>
+            <p>vstup zdarma</p>
+            <details>
+                <summary>zobrazit popis</summary>
+                <div>
+                    Po pěti klubových nocích na Cestě se šesté vydání sousta uskuteční na čerstvém vzduchu v prostoru mezi řekou a Křižíkovou elektrárnou. Během celého odpoledne a večera představí své sety různorodá směs DJs z Tábora a okolí. Kromě poslechu a tance se budete moci občerstvit a nejspíše i zasportovat! Přijďte se pobavit a užít si letní den v jedinečné atmosféře Křižíkovy elektrárny.
+                </div>
+            </details>
+        </div>
         <article>
             <h3>Křižíkova elektrárna Tábor</h3>
-            <time>14 - 22</time>
+            <time>14h - 22h</time>
         </article>
         <article>
             <h3>afterparty (TBA)</h3>
-            <time>22+</time>
+            <time>22h+</time>
         </article>
         <article>
             <h3>potvrzení</h3>
@@ -59,13 +68,24 @@
         padding: 2ex 1ex;
 
         & > article > * + * {
-            margin-top: 1ex;
+            margin-top: 1.5ex;
         }
 
         & > article > article > * + * {
             margin-top: 0.5ex;
         }
 
+        & summary {
+            cursor: pointer;
+            color: blue;
+        }
+
+        & details div {
+            max-width: 40ch;
+            font-size: 32px;
+            letter-spacing: 0;
+            margin-top: 1ex;
+        }
 
         & ul {
             margin-left: 2ex;
@@ -85,6 +105,10 @@
         & h2 span {
             white-space: nowrap;
         }
+    }
+
+    .date {
+        display: block;
     }
 
     .list {
