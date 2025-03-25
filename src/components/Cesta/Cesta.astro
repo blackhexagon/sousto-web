@@ -1,0 +1,119 @@
+---
+---
+<div class="container">
+    <article>
+        <h2>sousto</h2>
+        <div>
+            <time datetime="2025-04-25" class="date">
+                25/4/25
+            </time>
+            <p>vstup zdarma</p>
+            <details>
+                <summary>zobrazit popis</summary>
+                <div>
+                    Po pěti klubových nocích na Cestě se šesté vydání sousta uskuteční na čerstvém vzduchu v prostoru mezi řekou a Křižíkovou elektrárnou. Během celého odpoledne a večera představí své sety různorodá směs DJs z Tábora a okolí. Kromě poslechu a tance se budete moci občerstvit a nejspíše i zasportovat! Přijďte se pobavit a užít si letní den v jedinečné atmosféře Křižíkovy elektrárny.
+                </div>
+            </details>
+        </div>
+        <article>
+            <h3>Křižíkova elektrárna Tábor</h3>
+            <time>14h - 22h</time>
+        </article>
+        <article>
+            <h3>afterparty (TBA)</h3>
+            <time>22h+</time>
+        </article>
+        <article>
+            <h3>potvrzení</h3>
+            <ul class="list">
+                <li>
+                    <a href="https://www.instagram.com/caspichicken/">caspi</a> DJ set
+                </li>
+                <li>
+                    <a href="https://soundcloud.com/equist/">equi</a> DJ set
+                </li>
+                <li>
+                    <a href="https://soundcloud.com/mat-j-tesa-699479051/">Drauler</a> DJ set
+                </li>
+                <li>
+                    <a href="https://soundcloud.com/sousto_tabor/kix-sousto-tabor-cesta-241124">Kix</a> DJ set
+                </li>
+                <li>
+                    <a href="https://soundcloud.com/watp-murdah/">Murdah</a> DJ set
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=MZl8LRGxSmY/">syria</a> DJ set
+                </li>
+                <li>
+                    <a href="https://soundcloud.com/honza-vczeela">Vcheler</a> DJ set
+                </li>
+                <li>
+                    <a href="http://heartissue.cz/">heart issue</a> barbershop
+                </li>
+                <li>
+                    více brzy
+                </li>
+            </ul>
+        </article>
+    </article>
+</div>
+
+<style>
+    .container {
+        max-width: 40ch;
+        margin-inline: auto;
+        min-height: 100vh;
+        display: grid;
+        place-content: center;
+        padding: 2ex 1ex;
+
+        & > article > * + * {
+            margin-top: 1.5ex;
+        }
+
+        & > article > article > * + * {
+            margin-top: 0.5ex;
+        }
+
+        & summary {
+            cursor: pointer;
+            color: blue;
+        }
+
+        & details div {
+            max-width: 40ch;
+            font-size: 32px;
+            letter-spacing: 0;
+            margin-top: 1ex;
+        }
+
+        & ul {
+            margin-left: 2ex;
+        }
+
+        & a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        & h2 {
+            font-size: clamp(4 * 16px, 4 * 16px + 12 * 16 * var(--fluidum), 12 * 16px);
+            line-height: 1.2cap;
+            letter-spacing: -0.1ex;
+        }
+
+        & h2 span {
+            white-space: nowrap;
+        }
+    }
+
+    .date {
+        display: block;
+    }
+
+    .list {
+        @media (min-width: 800px) {
+            columns: 2 1cap;
+        }
+    }
+</style>
