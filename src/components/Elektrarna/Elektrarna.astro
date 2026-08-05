@@ -1,0 +1,164 @@
+---
+const artists = [
+    { name: 'Chris & Hilary', href: 'https://sabotduo.bandcamp.com/' },
+    {
+        name: 'KIX',
+        href: 'https://soundcloud.com/sousto_tabor/kix-sousto-tabor-cesta-241124',
+    },
+    { name: 'Murdah', href: 'https://soundcloud.com/watp-murdah/' },
+    {
+        name: 'Drauler',
+        href: 'https://soundcloud.com/mat-j-tesa-699479051/',
+    },
+    { name: 'Vcheler', href: 'https://soundcloud.com/honza-vczeela' },
+    { name: 'Quadrall' },
+];
+---
+<div class="container">
+    <article class="event">
+          <header>
+            <h2>
+                <span>Sousto</span>
+                <span>Křižíkova</span>
+                <span>elektrárna</span>
+            </h2>
+            <p class="time">
+                <time datetime="2026-08-22">22/8/2026 sobota</time><br />
+                <time datetime="2026-08-22T14:00">14:00</time>–<time datetime="2026-08-22T22:00">22:00</time>
+            </p>
+        </header>
+
+        <section>
+            <h3>
+                <a
+                    href="https://pamatkovykatalog.cz/krizikova-elektrarna-19994968"
+                    target="_blank"
+                    rel="noopener noreferrer">Křižíkova elektrárna Tábor</a>
+            </h3>
+        </section>
+
+        <section>
+            <h3>
+                afterparty @ <a
+                    href="https://www.instagram.com/goosedemon_club/"
+                    target="_blank"
+                    rel="noopener noreferrer">Démon</a>
+              <time datetime="2026-08-22T22:00">22:00+</time>
+            </h3>
+        </section>
+
+        <details open>
+            <summary>zobrazit popis</summary>
+            <div class="description">
+                <p>
+                    Po dvou letech se vracíme do haly Křižíkovy elektrárny. Vrata dokořán, řeka za zády a celé odpoledne i večer plné muziky. Sety odehraje pestrá směs DJs z Tábora a okolí, od klubové elektroniky po širší mix.
+                </p>
+                <p>
+                    Kromě poslechu a tance se u nás najíte i napijete. Vlastní bar, jídlo od lokálních lidí, kafe.
+                </p>
+                <p>
+                    Doražte na kole, po cyklostezce je to kousek a je to nejlepší způsob, jak se pak dostat domů. Střecha nad hlavou je, takže případný déšť nás nerozhodí.
+                </p>
+                <p>
+                    Přijďte si užít letní den v jedinečné atmosféře elektrárny. Tábor je náš program.
+                </p>
+            </div>
+        </details>
+
+        <section>
+            <h3>program</h3>
+            <ul class="list">
+                {artists.map((artist) => (
+                    <li>
+                        {artist.href ? (
+                            <a href={artist.href} target="_blank" rel="noopener noreferrer">{artist.name}</a>
+                        ) : artist.name}{' '}<sup>[DJ set]</sup>
+                    </li>
+                ))}
+                <li>
+                    <a href="https://www.nazivocatering.cz/" target="_blank" rel="noopener noreferrer">
+                        naživo catering
+                    </a>{' '}<sup>[jidlo]</sup>
+                </li>
+            </ul>
+        </section>
+    </article>
+</div>
+
+<style>
+    .container {
+        width: min(48ch, 100%);
+        margin-inline: auto;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        place-content: center;
+        padding: 2ex 1ex;
+
+        & .event > * + * {
+            margin-top: 1.5ex;
+        }
+
+        & section > * + * {
+            margin-top: 0.5ex;
+        }
+
+        & summary {
+            cursor: pointer;
+            color: blue;
+        }
+
+        & .description {
+            max-width: 45ch;
+            font-size: 32px;
+            letter-spacing: 0;
+            margin-top: 1ex;
+        }
+
+        & .description > * + * {
+            margin-top: 1em;
+        }
+
+        & ul {
+            margin-left: 2ex;
+        }
+
+        & a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        & :is(a, summary):focus-visible {
+            outline: 0.1em solid currentColor;
+            outline-offset: 0.12em;
+            border-radius: 0.05em;
+        }
+
+        & sup {
+            font-size: 0.6em;
+        }
+
+        & h2 {
+            font-size: clamp(64px, 10vw, 192px);
+            line-height: 0.85;
+            letter-spacing: -0.1ex;
+        }
+      
+        & .time {
+            margin-top: 2lvh;
+            font-size: clamp(32px, 5vw, 90px);
+            line-height: 0.9;
+            letter-spacing: -0.01ex;
+        }
+
+        & h2 span {
+            display: block;
+        }
+    }
+
+    .list {
+        @media (min-width: 800px) {
+            columns: 2 1cap;
+        }
+    }
+</style>
