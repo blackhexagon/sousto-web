@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="díky | sousto">
+    <main>
+        <h1>díky</h1>
+        <p>registraci na alley cat máme.</p>
+        <a href="/">zpět na sousto</a>
+    </main>
+</Layout>
+
+<style>
+    main {
+        min-height: 100svh;
+        padding: clamp(24px, 4vw, 64px);
+        display: grid;
+        place-content: center;
+        gap: 0.7em;
+        background: black;
+        color: var(--color-primary);
+        text-align: center;
+
+        & h1 {
+            font-size: clamp(128px, 30vw, 560px);
+            line-height: 1;
+            letter-spacing: -0.12ex;
+        }
+
+        & p {
+            font-size: clamp(28px, 5vw, 72px);
+            letter-spacing: -0.02ex;
+        }
+
+        & a {
+            width: fit-content;
+            margin-inline: auto;
+            color: inherit;
+        }
+
+        & a:focus-visible {
+            outline: 0.1em solid currentColor;
+            outline-offset: 0.12em;
+        }
+    }
+</style>
