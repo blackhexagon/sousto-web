@@ -1,21 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Television from '../components/Television/Television.astro';
-import Elektrarna from '../components/Elektrarna/Elektrarna.astro';
 ---
 
 <Layout title="sousto">
     <main>
-        <section class="event">
-          <Elektrarna />
-        </section>
         <section class="intro">
-            <Television>
-                <h1 class="title">
-                    <span>sou</span>
-                    <span>sto</span>
-                </h1>
-            </Television>
+            <h1 class="title">sousto</h1>
+            <video autoplay muted loop playsinline aria-hidden="true">
+                <source src="/cover.mp4" type="video/mp4" />
+            </video>
         </section>
         <section class="manifest">
             <article>
@@ -43,8 +36,17 @@ import Elektrarna from '../components/Elektrarna/Elektrarna.astro';
 
 <style>
 
-    .event {
-        background: var(--color-primary);
+    .intro {
+        height: 100vh;
+        height: 100svh;
+        background: black;
+
+        & > video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
     }
 
     .manifest {
@@ -98,21 +100,12 @@ import Elektrarna from '../components/Elektrarna/Elektrarna.astro';
     }
 
     .title {
-        font-size: clamp(16 * 16px, 16 * 16px + 8 * 16 * var(--fluidum), 24 * 16px);
-        line-height: 1cap;
-        display: flex;
-        letter-spacing: -0.1ex;
-
-
-        @media ( orientation: portrait ) {
-            flex-direction: column;
-
-
-            & > span:first-child {
-                line-height: 0.6;
-                letter-spacing: -28px;
-            }
-        }
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
     }
 
     .mascot {
